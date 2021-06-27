@@ -15,9 +15,12 @@ services:
       - postgres
     volumes:
       - .:/app:z
+      - ./pesados_el_norte:/app/pesados_el_norte:z
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
+    environment:
+      - PYTHONUNBUFFERED=1
     ports:
       - "8000:8000"
     command: /start

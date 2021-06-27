@@ -72,7 +72,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "pesados_el_norte.users.apps.UsersConfig",
-    # Your stuff: custom apps go here
+    "pesados_el_norte.core_app.apps.CoreAppConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

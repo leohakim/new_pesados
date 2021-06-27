@@ -1,0 +1,142 @@
+{#<div class="accordion" id="accordionExample">#}
+{#  <div class="accordion-item">#}
+{#    <h3 class="accordion-header" id="headingOne">#}
+{#      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"#}
+{#              aria-expanded="true" aria-controls="collapseOne">#}
+{#        Caja#}
+{#      </button>#}
+{#    </h3>#}
+{#    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"#}
+{#         data-bs-parent="#accordionExample">#}
+{#      <div class="accordion-body">#}
+{#        <ul>#}
+{#          <li><button type="button" class="btn btn-outline-primary">Resumen</button></li>#}
+{#          <li><button type="button" class="btn btn-outline-primary">Cheques</button></li>#}
+{#          <li><button type="button" class="btn btn-outline-primary">Efectivo</button></li>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="accordion-item">#}
+{#    <h3 class="accordion-header" id="headingTwo">#}
+{#      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"#}
+{#              aria-expanded="false" aria-controls="collapseTwo">#}
+{#        Comprobantes#}
+{#      </button>#}
+{#    </h3>#}
+{#    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"#}
+{#         data-bs-parent="#accordionExample">#}
+{#      <div class="accordion-body">#}
+{#        > Ventas - Recibo#}
+{#        > Compras#}
+{#        > Depositos#}
+{#        > Gastos#}
+{#        > Retiros#}
+{#        > Redondeo#}
+{#        > Ingresos#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="accordion-item">#}
+{#    <h3 class="accordion-header" id="headingThree">#}
+{#      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"#}
+{#              aria-expanded="false" aria-controls="collapseThree">#}
+{#        Comisiones#}
+{#      </button>#}
+{#    </h3>#}
+{#    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"#}
+{#         data-bs-parent="#accordionExample">#}
+{#      <div class="accordion-body">#}
+{#        > Resumen#}
+{#        > Agregar Comprobante#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="accordion-item">#}
+{#    <h3 class="accordion-header" id="headingThree">#}
+{#      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"#}
+{#              aria-expanded="false" aria-controls="collapseThree">#}
+{#        Clientes#}
+{#      </button>#}
+{#    </h3>#}
+{#    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"#}
+{#         data-bs-parent="#accordionExample">#}
+{#      <div class="accordion-body">#}
+{#        > Resumen#}
+{#        > Agregar Cliente#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+
+<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+  <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+    <li>
+      <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle px-0">
+        <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">> Caja</span>
+      </a>
+      <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Resumen</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Cheques</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Efectivo</span></a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+        <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">> Comprobantes</span> </a>
+      <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Ventas / Recibos</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Compras</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Depositos</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Gastos</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Retiros</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Redondeos</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Ingresos</span></a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+        <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">> Comisiones</span></a>
+      <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+        <li class="w-100">
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Resumen</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Agregar Comprobante</span></a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+        <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">> Clientes</span> </a>
+      <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+        <li class="w-100">
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Resumen</span></a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Agregar Cliente</span></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

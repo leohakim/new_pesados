@@ -5,6 +5,7 @@ from pesados_el_norte.core_app.utils.utils import only_int
 
 
 class Person(BaseModel):
+    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = CharField(max_length=200, blank=False, verbose_name='Nombre')
     code = PositiveIntegerField(verbose_name='Cod Interno')
     cuit = CharField(validators=[only_int], max_length=11, unique=True, verbose_name='C.U.I.T.')
@@ -19,15 +20,20 @@ class Person(BaseModel):
         return super(Person, self).save(*args, **kwargs)
 
     class Meta:
-        abstract = True
         ordering = ['name']
         verbose_name = 'Persona'
         verbose_name_plural = 'Personas'
 
 
 class Client(Person):
-    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Cliente'
+        verbose_name_plural = 'Clientes'
 
 
 class Provider(Person):
-    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Proveedor'
+        verbose_name_plural = 'Proveedores'

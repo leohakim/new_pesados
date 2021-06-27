@@ -32,6 +32,11 @@ class Cash(Payment):
     def __str__(self):
         return f'$ {self.amount}'
 
+    class Meta:
+        ordering = ['date']
+        verbose_name = 'Efectivo'
+        verbose_name_plural = 'Efectivo'
+
 
 class Check(Payment):
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -40,10 +45,20 @@ class Check(Payment):
     number = PositiveIntegerField(verbose_name='Numero')
     cuit = CharField(validators=[only_int], max_length=11, unique=True, verbose_name='C.U.I.T.')
 
+    class Meta:
+        ordering = ['date']
+        verbose_name = 'Cheque'
+        verbose_name_plural = 'Cheques'
+
 
 class BankTransferReceived(Payment):
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = PositiveIntegerField(verbose_name='Numero')
+
+    class Meta:
+        ordering = ['date']
+        verbose_name = 'Transferencia Recibida'
+        verbose_name_plural = 'Transferencias Recibidas'
 
 
 class BankTransferIssued(Payment):
@@ -53,12 +68,22 @@ class BankTransferIssued(Payment):
     )
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = PositiveIntegerField(verbose_name='Numero')
-    account = CharField(blank=False, choices=ACCOUNTS, verbose_name='Cuenta Propia Banco ')
+    account = CharField(blank=False, choices=ACCOUNTS, verbose_name='Cuenta Propia Banco ', max_length=100)
+
+    class Meta:
+        ordering = ['date']
+        verbose_name = 'Transferencia Emitida'
+        verbose_name_plural = 'Transferencias Emitidas'
 
 
 class CreditCard(Payment):
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = PositiveIntegerField(verbose_name='Numero')
+
+    class Meta:
+        ordering = ['date']
+        verbose_name = 'Tarjeta de Credito'
+        verbose_name_plural = 'Tarjetas de Credito'
 
 
 class Retentions(Payment):
@@ -70,4 +95,9 @@ class Retentions(Payment):
 
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = PositiveIntegerField(verbose_name='Numero')
-    retention_type = CharField(blank=False, choices=RETENTIONS_TYPES, verbose_name='Tipo de Retencion')
+    retention_type = CharField(blank=False, choices=RETENTIONS_TYPES, verbose_name='Tipo de Retencion', max_length=100)
+
+    class Meta:
+        ordering = ['date']
+        verbose_name = 'Retencion'
+        verbose_name_plural = 'Retenciones'

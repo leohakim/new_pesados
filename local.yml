@@ -1,30 +1,32 @@
-version: '3'
+version: '2'
 
 volumes:
-  local_postgres_data: {}
-  local_postgres_data_backups: {}
+  local_postgres_data: { }
+  local_postgres_data_backups: { }
 
 services:
+
   django:
-    build:
-      context: .
-      dockerfile: ./compose/local/django/Dockerfile
-    image: pesados_el_norte_local_django
-    container_name: django
-    depends_on:
-      - postgres
-    volumes:
-      - .:/app:z
-      - ./pesados_el_norte:/app/pesados_el_norte:z
-    env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+    restart: always
     environment:
       - PYTHONUNBUFFERED=1
       - DATABASE_URL=postgres://debug:debug@postgres/pesados_el_norte
+    image: pesados_el_norte_local_django
+    container_name: django
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
+    command: /start
+    volumes:
+      - .:/app:z
+      - ./pesados_el_norte:/app/pesados_el_norte:z
     ports:
       - "8000:8000"
-    command: /start
+    depends_on:
+      - postgres
 
   postgres:
     build:
@@ -53,3 +55,5 @@ services:
     ports:
       - "7000:7000"
     command: /start-docs
+
+

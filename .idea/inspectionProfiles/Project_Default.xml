@@ -6,7 +6,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="39">
+          <list size="68">
             <item index="0" class="java.lang.String" itemvalue="motor" />
             <item index="1" class="java.lang.String" itemvalue="pathspec" />
             <item index="2" class="java.lang.String" itemvalue="typed-ast" />
@@ -46,6 +46,35 @@
             <item index="36" class="java.lang.String" itemvalue="Pillow" />
             <item index="37" class="java.lang.String" itemvalue="django-structlog" />
             <item index="38" class="java.lang.String" itemvalue="flask-login" />
+            <item index="39" class="java.lang.String" itemvalue="django-environ" />
+            <item index="40" class="java.lang.String" itemvalue="sphinx-autobuild" />
+            <item index="41" class="java.lang.String" itemvalue="factory-boy" />
+            <item index="42" class="java.lang.String" itemvalue="mypy" />
+            <item index="43" class="java.lang.String" itemvalue="pytest-django" />
+            <item index="44" class="java.lang.String" itemvalue="django-stubs" />
+            <item index="45" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="46" class="java.lang.String" itemvalue="pre-commit" />
+            <item index="47" class="java.lang.String" itemvalue="pylint-django" />
+            <item index="48" class="java.lang.String" itemvalue="python-slugify" />
+            <item index="49" class="java.lang.String" itemvalue="redis" />
+            <item index="50" class="java.lang.String" itemvalue="django-extensions" />
+            <item index="51" class="java.lang.String" itemvalue="ipdb" />
+            <item index="52" class="java.lang.String" itemvalue="django-model-utils" />
+            <item index="53" class="java.lang.String" itemvalue="coverage" />
+            <item index="54" class="java.lang.String" itemvalue="pytest-sugar" />
+            <item index="55" class="java.lang.String" itemvalue="Werkzeug" />
+            <item index="56" class="java.lang.String" itemvalue="django-coverage-plugin" />
+            <item index="57" class="java.lang.String" itemvalue="django-crispy-forms" />
+            <item index="58" class="java.lang.String" itemvalue="pytest" />
+            <item index="59" class="java.lang.String" itemvalue="whitenoise" />
+            <item index="60" class="java.lang.String" itemvalue="django-debug-toolbar" />
+            <item index="61" class="java.lang.String" itemvalue="hiredis" />
+            <item index="62" class="java.lang.String" itemvalue="sphinx" />
+            <item index="63" class="java.lang.String" itemvalue="flake8-isort" />
+            <item index="64" class="java.lang.String" itemvalue="django" />
+            <item index="65" class="java.lang.String" itemvalue="django-redis" />
+            <item index="66" class="java.lang.String" itemvalue="argon2-cffi" />
+            <item index="67" class="java.lang.String" itemvalue="django-allauth" />
           </list>
         </value>
       </option>

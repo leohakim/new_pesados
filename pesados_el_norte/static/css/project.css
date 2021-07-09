@@ -22,3 +22,15 @@
   padding: 0.5em;
   width: 11.7em;
 }
+
+.login_home {
+  margin: 6rem 6rem;
+}
+
+.login_home >  form {
+  margin-top:40px
+}
+
+.form-group {
+  margin-top: 40px;
+}

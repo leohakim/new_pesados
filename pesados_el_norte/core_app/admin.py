@@ -1,8 +1,14 @@
 from django.contrib import admin
 from pesados_el_norte.core_app.models.person import Client, Provider
 from pesados_el_norte.core_app.models.receipt import Receipt, ReceiptType
-from pesados_el_norte.core_app.models.payment import BankTransferIssued, BankTransferReceived, Cash, Check, CreditCard, \
-    Retentions
+from pesados_el_norte.core_app.models.payment import (
+    BankTransferIssued,
+    BankTransferReceived,
+    Cash,
+    Check,
+    CreditCard,
+    Retentions,
+)
 
 
 @admin.register(Client)
@@ -25,7 +31,17 @@ class ReceiptTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Receipt)
 class ReceiptAdmin(admin.ModelAdmin):
-    list_display = ["id", "date", "receipt_type", "prefix", "number", "amount", "is_cash", "giver", "receiver"]
+    list_display = [
+        "id",
+        "date",
+        "receipt_type",
+        "prefix",
+        "number",
+        "amount",
+        "is_cash",
+        "giver",
+        "receiver",
+    ]
     search_fields = ["date"]
 
 
@@ -37,7 +53,16 @@ class ReceiptAdmin(admin.ModelAdmin):
 
 @admin.register(Check)
 class ReceiptAdmin(admin.ModelAdmin):
-    list_display = ["id", "receipt", "date", "amount", "sign_date", "pay_date", "number", "cuit"]
+    list_display = [
+        "id",
+        "receipt",
+        "date",
+        "amount",
+        "sign_date",
+        "pay_date",
+        "number",
+        "cuit",
+    ]
     search_fields = ["date"]
 
 

@@ -27,4 +27,4 @@ def validar_cuit(cuit):
 
 def only_int(value):
     if not validar_cuit(value):
-        raise ValidationError('Ingresar un cuit válido')
+        raise ValidationError("Ingresar un cuit válido")

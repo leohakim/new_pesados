@@ -16,6 +16,11 @@ from pesados_el_norte.core_app.models.receipt import Receipt
 from pesados_el_norte.users.models import User
 from pesados_el_norte.core_app.utils.utils import only_int
 
+ACCOUNTS = (
+    ("MACRO", "Banco Macro"),
+    ("PATAGONIA", "Banco Patagonia"),
+)
+
 
 class Payment(BaseModel):
     receipt = ForeignKey(Receipt, on_delete=PROTECT, verbose_name="Comprobante")
@@ -64,6 +69,12 @@ class Check(Payment):
 class BankTransferReceived(Payment):
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = PositiveIntegerField(verbose_name="Numero")
+    account = CharField(
+        blank=False,
+        choices=ACCOUNTS,
+        verbose_name="Cuenta Propia Banco ",
+        max_length=100,
+    )
 
     class Meta:
         ordering = ["date"]
@@ -72,10 +83,6 @@ class BankTransferReceived(Payment):
 
 
 class BankTransferIssued(Payment):
-    ACCOUNTS = (
-        ("MACRO", "Banco Macro"),
-        ("PATAGONIA", "Banco Patagonia"),
-    )
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = PositiveIntegerField(verbose_name="Numero")
     account = CharField(
@@ -91,24 +98,25 @@ class BankTransferIssued(Payment):
         verbose_name_plural = "Transferencias Emitidas"
 
 
-class CreditCard(Payment):
+class Card(Payment):
+    CARDS_TYPES = (
+        ("Credito", "Credito"),
+        ("Debito", "Debito"),
+    )
+
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     number = PositiveIntegerField(verbose_name="Numero")
+    type = CharField(
+        blank=False,
+        choices=CARDS_TYPES,
+        verbose_name="Tipo de Tarjeta",
+        max_length=100,
+    )
 
     class Meta:
         ordering = ["date"]
-        verbose_name = "Tarjeta de Credito"
-        verbose_name_plural = "Tarjetas de Credito"
-
-
-class DebitCard(Payment):
-    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    number = PositiveIntegerField(verbose_name="Numero")
-
-    class Meta:
-        ordering = ["date"]
-        verbose_name = "Tarjeta de Debito"
-        verbose_name_plural = "Tarjetas de Debito"
+        verbose_name = "Tarjeta"
+        verbose_name_plural = "Tarjetas"
 
 
 class Retentions(Payment):

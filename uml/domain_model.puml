@@ -1,0 +1,103 @@
+@startuml
+enum RECEIPT_TYPES{
+    Ventas/Recibo
+    Compras
+    Depositos
+    Gastos
+    Retiros
+    Redondeos
+    Ingresos
+}
+
+class ReceiptType {
+    name
+    receipt_type
+    code
+    giver_type
+    receiver_type
+}
+
+ReceiptType .left.> RECEIPT_TYPES
+Receipt *-left- ReceiptType
+
+class Receipt{
+    date
+    receipt_type
+    prefix
+    number
+    amount
+    is_cash
+    giver
+    receiver
+    approved
+    approved_at
+    approved_by
+    observations
+}
+
+abstract class Payment{
+    receipt
+    date
+    amount
+    observations
+    created_by
+}
+Payment "0..N" .up.* Receipt
+
+class Cash{
+}
+Cash -up-|> Payment
+
+class Check{
+    sign_date
+    pay_date
+    number
+    cuit
+}
+Check -up-|> Payment
+
+class BankTransferReceived{
+    number
+    account
+}
+BankTransferReceived -up-|> Payment
+BankTransferReceived ..> ACCOUNTS
+
+enum ACCOUNTS{
+    MACRO
+    PATAGONIA
+}
+
+class BankTransferIssued{
+    number
+    account
+}
+BankTransferIssued -up-|> Payment
+BankTransferIssued ..> ACCOUNTS
+
+enum CARDS_TYPES{
+    Credito
+    Debito
+}
+
+class Card{
+    number
+    type
+}
+Card -up-|> Payment
+Card ..> CARDS_TYPES
+
+enum RETENTIONS_TYPES{
+    IVA
+    IIBB
+    Gcias
+}
+
+class Retentions {
+    number
+    retention_type
+}
+Retentions -up-|> Payment
+Retentions ..> RETENTIONS_TYPES
+
+@enduml

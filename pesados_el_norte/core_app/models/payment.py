@@ -101,6 +101,16 @@ class CreditCard(Payment):
         verbose_name_plural = "Tarjetas de Credito"
 
 
+class DebitCard(Payment):
+    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    number = PositiveIntegerField(verbose_name="Numero")
+
+    class Meta:
+        ordering = ["date"]
+        verbose_name = "Tarjeta de Debito"
+        verbose_name_plural = "Tarjetas de Debito"
+
+
 class Retentions(Payment):
     RETENTIONS_TYPES = (
         ("IVA", "IVA"),

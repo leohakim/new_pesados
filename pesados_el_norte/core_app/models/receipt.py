@@ -30,16 +30,28 @@ class ReceiptType(BaseModel):
         ("Client", Client),
         ("Provider", Provider),
     )
-    name = CharField(max_length=200, verbose_name="Nombre")
+    name = CharField(
+        max_length=200,
+        verbose_name="Nombre",
+    )
     receipt_type = CharField(
-        blank=False, choices=RECEIPT_TYPES, verbose_name="Tipo", max_length=100
+        blank=False,
+        choices=RECEIPT_TYPES,
+        verbose_name="Tipo",
+        max_length=100,
     )
     code = PositiveIntegerField(verbose_name="Codigo")
     giver_type = CharField(
-        blank=False, choices=PERSONS_TYPE, verbose_name="Emisor", max_length=100
+        blank=False,
+        choices=PERSONS_TYPE,
+        verbose_name="Emisor",
+        max_length=100,
     )
     receiver_type = CharField(
-        blank=False, choices=PERSONS_TYPE, verbose_name="Receptor", max_length=100
+        blank=False,
+        choices=PERSONS_TYPE,
+        verbose_name="Receptor",
+        max_length=100,
     )
 
     class Meta:
@@ -77,6 +89,5 @@ class Receipt(BaseModel):
     class Meta:
         verbose_name = "Comprobante"
         verbose_name_plural = "Comprobantes"
-
 
 # todo Falta el modelo del bonus receipt y migrar

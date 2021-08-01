@@ -1,0 +1,3 @@
+Terminar el modelo de dominio
+comisionables
+Terminar el prototipo XD

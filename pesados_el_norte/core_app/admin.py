@@ -6,7 +6,7 @@ from pesados_el_norte.core_app.models.payment import (
     BankTransferReceived,
     Cash,
     Check,
-    CreditCard,
+    Card,
     Retentions,
 )
 
@@ -78,9 +78,9 @@ class ReceiptAdmin(admin.ModelAdmin):
     search_fields = ["date"]
 
 
-@admin.register(CreditCard)
+@admin.register(Card)
 class ReceiptAdmin(admin.ModelAdmin):
-    list_display = ["id", "receipt", "date", "amount", "number"]
+    list_display = ["id", "type", "receipt", "date", "amount", "number"]
     search_fields = ["date"]
 
 
